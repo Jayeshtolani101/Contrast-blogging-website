@@ -1,0 +1,583 @@
+:root {
+    --yellow: #FFD700;
+    --black: #000000;
+    --max-width: 1400px;
+    --container-padding: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--black);
+    color: var(--yellow);
+    line-height: 1.6;
+}
+
+/* Add to your existing CSS */
+
+.article-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: var(--black);
+    border: 1px solid var(--yellow);
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+.article-card:hover .article-image img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Image loading animation */
+.article-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.1),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Navigation */
+.navbar {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid var(--yellow);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+/* Optimize images for different screen sizes */
+@media (max-width: 768px) {
+    .article-image {
+        aspect-ratio: 4/3;
+    }
+}
+
+/* Navigation */
+.navbar {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--yellow);
+}
+
+.nav-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.nav-menu a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid var(--yellow);
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Articles Section */
+.articles {
+    padding: 4rem 2rem;
+}
+
+.articles h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.article-card {
+    border: 1px solid var(--yellow);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-card h3 {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--yellow);
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--yellow);
+    margin-top: 4rem;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Article Page Styles */
+.article-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.full-article {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 2rem;
+    border: 1px solid var(--yellow);
+}
+
+.article-meta {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--yellow);
+}
+
+.article-meta span {
+    margin-right: 1rem;
+}
+
+.article-image-full {
+    margin: 2rem 0;
+}
+
+.article-image-full img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--yellow);
+}
+
+.article-content {
+    line-height: 1.8;
+}
+
+.article-content h2 {
+    margin: 2rem 0 1rem;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+/* Base Responsive Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Navigation Responsive Styles */
+.navbar {
+    padding: 1rem var(--container-padding);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--black);
+}
+
+.nav-brand {
+    font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+}
+
+.nav-menu {
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--black);
+        padding: 1rem;
+        border-top: 1px solid var(--yellow);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Hero Section Responsive */
+.hero {
+    padding: clamp(3rem, 8vw, 6rem) var(--container-padding);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+}
+
+/* Articles Grid Responsive */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+}
+
+.article-card {
+    height: 100%;
+}
+
+/* Featured Widgets Responsive */
+.widget-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Images Responsive */
+.article-image, .widget-image {
+    aspect-ratio: 16/9;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Footer Responsive */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: clamp(2rem, 4vw, 3rem);
+    padding: 0 var(--container-padding);
+}
+
+/* Article Page Responsive */
+.article-container {
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* Social Share Buttons Responsive */
+.share-buttons {
+    gap: clamp(0.5rem, 1vw, 1rem);
+    flex-wrap: wrap;
+}
+
+/* Media Queries for Different Devices */
+
+/* Small phones */
+@media (max-width: 320px) {
+    :root {
+        --container-padding: 1rem;
+    }
+    
+    .footer-social {
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+    .container {
+        padding: 0 4rem;
+    }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --black: #000000;
+        --yellow: #FFD700;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .nav-menu,
+    .share-buttons,
+    .footer-social {
+        display: none;
+    }
+}
+
+/* Landscape mode */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        padding: 2rem var(--container-padding);
+    }
+}
+
+/* High-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .article-card:hover,
+    .share-btn:hover {
+        transform: none;
+    }
+}
+
+/* Utility Classes for Responsive Design */
+.hide-mobile {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.hide-desktop {
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+
+.text-center-mobile {
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+/* Typing Animation */
+.typing-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    margin: 0 auto;
+    border-right: 2px solid var(--yellow);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: 
+        typing 6s steps(50, end) infinite,
+        blink-caret .75s step-end infinite,
+        delete 4s steps(50, end) infinite 8s;
+    width: 0;
+}
+
+@keyframes typing {
+    0% { 
+        width: 0; 
+    }
+    40% { 
+        width: 100%; 
+    }
+    100% { 
+        width: 100%; 
+    }
+}
+
+@keyframes delete {
+    0% { 
+        width: 100%; 
+    }
+    40% { 
+        width: 0; 
+    }
+    100% { 
+        width: 0; 
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--yellow) }
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .typing-text {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+        width: 100%;
+    }
+}
+
+.logo-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-text {
+    font-size: 20px;
+  }
+}
